@@ -5,52 +5,71 @@ books = [
     'MY OWN WORDS', 'THE BODY KEEPS THE SCORE', 'STAMPED FROM THE BEGINNING', 'JUST MERCY', 'BORN A CRIME', 'ON TYRANNY', 'HOMO DEUS: A BRIEF HISTORY OF TOMORROW',
     'THE WARMTH OF OTHER SUNS', 'THE NEW JIM CROW', 'THE POWER OF MOMENTS', 'BRAIDING SWEETGRASS', 'MY GRANDMOTHER\'S HANDS', 'THE ROAD TO UNFREEDOM'
 ]
-
+books_list = books
 # 1.1 TODO: Create a function named 'available_books' to print the books list -- one book title on each line
 # Parameters: Not needed for this function
 # Return: Not needed for this function
-
-
+def available_books():
+     for books_list in books:
+        print(books_list)
 # 1.2 TODO: Run the 'available_books' function
-
+   
+# print("Available Books:")
+available_books()
 
 print('-----------------------')
-# 1.3 TODO: Create a function named 'check_out' that removes a book from the books list
-# Parameters: book_title (string)
-# Return: Not needed for this function
+# # 1.3 TODO: Create a function named 'check_out' that removes a book from the books list
+# # Parameters: book_title (string)
+# # Return: Not needed for this function
 
+def check_out(book_title):
+    if book_title in books_list:
+        books_list.remove(book_title)
+       
+   
 
 # 1.4 TODO: Check out 'THE POWER OF MOMENTS' using the check_out function
 
+check_out('THE POWER OF MOMENTS')
 
-# 1.5 TODO: Run the 'available_books' function again to see if the book was checked out
 
+# # 1.5 TODO: Run the 'available_books' function again to see if the book was checked out
+
+available_books()
+print('-----------------------')
+
+
+# # 1.6 TODO: Create a function 'check_in' that adds a book to the end of the books list
+# # Parameters: book_title (string)
+# # Return: Not needed for this function
+def check_in(book_title):
+    books_list.append(book_title)
+    # else:
+    #     print('This book is already in our system')
+# # 1.7 TODO: Check in 'THE POWER OF MOMENTS' using the check_in function
+check_in('THE POWER OF MOMENTS')
+
+# # 1.8 TODO: Run the 'available_books' function to see if the book was checked in
+
+available_books()
 
 print('-----------------------')
-# 1.6 TODO: Create a function 'check_in' that adds a book to the end of the books list
-# Parameters: book_title (string)
-# Return: Not needed for this function
+# # 1.9 TODO: Create a function 'search_by_name' that prints 'Available' if exists in books list, 'Not Available' if it doesn't.
+# # Parameters: book_title (string)
+# # Return: Not needed for this function
+def search_by_name(book_title):
+    if book_title in books:
+        print('Available')
+    else:
+        print('Not Available')
 
+# # 1.10 TODO: Search for the book 'JUST MERCY'
+# search_by_name('JUST MERCY')
 
-# 1.7 TODO: Check in 'THE POWER OF MOMENTS' using the check_in function
+# # 1.11 TODO: Search for the book '4000 WEEKS'
+# search_by_name('4000 WEEKS')
 
-
-# 1.8 TODO: Run the 'available_books' function to see if the book was checked in
-
-
-print('-----------------------')
-# 1.9 TODO: Create a function 'search_by_name' that prints 'Available' if exists in books list, 'Not Available' if it doesn't.
-# Parameters: book_title (string)
-# Return: Not needed for this function
-
-
-# 1.10 TODO: Search for the book 'JUST MERCY'
-
-
-# 1.11 TODO: Search for the book '4000 WEEKS'
-
-
-# Here's the same list of books, with additional details
+# # Here's the same list of books, with additional details
 
 books_with_details = [
     {
@@ -124,22 +143,33 @@ books_with_details = [
 
 # 2.0 TODO: In a comment, describe the structure of the data in books_with_details.
 # What types of data are nested within others? How do you know?
-
-
+#books_with_details is a list that contains 13 dictionaries and contains key value pairs in each dictionary
+#the dictionaries are nested within a list. I can tell by what the data is enclosed with.
 # 2.1 TODO: Create a function called 'count_books' that returns the number of books in the books_with_details list
 # Parameters: Not needed for this function
 # Return: number of books (integer)
-
+def count_books():
+    return len(books_with_details)
 
 # 2.2 TODO: Check the number of books available in the books list using the `count_books` function
 # HINT: Does `return` print anything out?
-
+# num_books = count_books()
+# print(num_books)
 
 # 2.3 TODO: Create a function 'search_by_author' that returns the titles of books by an author
 # Parameters - author (string)
 # Return - author's books (list of strings)
 # Hint - You will need a for loop, if statement, and .append() for this solution!
+def search_by_author(author):
+    author_books = []
+    for x in books_with_details:
+        if x ['author'] == author:
+            author_books.append(x['title'])
+    return author_books
 
 
 # 2.4 TODO: Search for book titles by the author 'Yuval Noah Harari' using the search_by_author function
 # HINT: Remember again-- return doesn't print anything out. How can we print the output of the function?
+# search_by_author('Yuval Noah Harari')
+# author = search_by_author()
+# print(author)
